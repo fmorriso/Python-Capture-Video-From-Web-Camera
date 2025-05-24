@@ -18,5 +18,7 @@ An example of using Python to record video from a computer's built-in web camera
 
 ## References
 
-* [OpenCV Python](https://github.com/opencv/opencv-python)
+* [Introduction to OpenCV-Python Tutorials](https://docs.opencv.org/4.x/d0/de3/tutorial_py_intro.html)
+* [OpenCV Python](https://github.com/opencv/opencv-python?tab=readme-ov-file#documentation-for-opencv-python)
+* [OpenCV Python Documentation](https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html)
 * [OpenCV](https://opencv.org)
