@@ -1,6 +1,6 @@
 import sys
 from importlib.metadata import version
-
+import time
 import cv2 as cv
 
 
@@ -13,15 +13,16 @@ def get_package_version(package_name: str) -> str:
 
 
 def main():
+    MAXIMUM_SECONDS: int = 30
     flags = [i for i in dir(cv) if i.startswith('COLOR_')]
     print(flags)
     cap = cv.VideoCapture(0)
     if not cap.isOpened():
         print("Cannot open camera")
         exit()
-    loop_count = 0
-    while True:
-        loop_count += 1
+
+    start_time = time.time()
+    while time.time() - start_time < MAXIMUM_SECONDS:
         # Capture frame-by-frame
         ret, frame = cap.read()
         # if frame is read correctly ret is True
@@ -40,11 +41,12 @@ def main():
         # break out of the loop when the user presses the "q" key
         if cv.waitKey(1) == ord('q'):
             break
+        time.sleep(1/MAXIMUM_SECONDS)
 
     # When everything is done, release the capture
     cap.release()
     cv.destroyAllWindows()
-    print(f'loop count = {loop_count}')
+
 
 
 if __name__ == '__main__':
